@@ -280,6 +280,17 @@ function App() {
                   <img src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" />
                   <img src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" />
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" />
+
+                  <img src="/bhel.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/coffe.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/collage.jpg" alt="Memory 10" className="gallery-img" />
+                   <img src="/kalyan.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/milk.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/math.jpg" alt="Memory 10" className="gallery-img" />
+
+
+
                 </div>
               </div>
 
