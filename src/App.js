@@ -281,7 +281,7 @@ function App() {
                   <img src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" />
                   <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" />
 
-                  <img src="https://cdn.shopify.com/s/files/1/0521/3929/4884/files/Jayanagar_480x480.jpg?v=1643104290" alt="Memory 3" className="gallery-img" />
+                  <img src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" />
                   <img src="/shri.jpg" alt="Memory 10" className="gallery-img" />
 
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" />
