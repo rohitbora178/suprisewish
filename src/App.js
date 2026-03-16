@@ -1,8 +1,59 @@
 import React, { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 import "./App.css";
 
 function App() {
   const [page, setPage] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [reviewText, setReviewText] = useState('');
+  const [tempEmoji, setTempEmoji] = useState(null);
+  const [currentStar, setCurrentStar] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const emojis = {
+    1: '😢',
+    2: '😐',
+    3: '😊',
+    4: '😄',
+    5: '😍'
+  };
+
+  const handleRatingChange = (star) => {
+    setCurrentStar(star);
+    setTempEmoji(emojis[star]);
+    setTimeout(() => {
+      setTempEmoji(null);
+      setRating(star);
+    }, 1000);
+  };
+
+  const sendEmail = async () => {
+    try {
+      await emailjs.send(
+        'service_lvvgut5',
+        'template_jzsl8ha', 
+        {
+          rating: rating,
+          message: reviewText,
+          to_email: 'rohitbora178@gmail.com',
+          name: `Rating: ${rating} stars`, // Add name for template
+          time: new Date().toLocaleString() // Add current time
+        },
+        '1peIaKL7OaR0TBd0f'
+      );
+      setShowSuccess(true);
+      // Clear the form after successful submission
+      setRating(0);
+      setReviewText('');
+      setTimeout(() => {
+        setShowSuccess(false);
+        setPage(5);
+      }, 3000); 
+    } catch (error) {
+      alert('Failed to send review. Please try again.');
+      console.error('Email send error:', error);
+    }
+  };
 
   useEffect(() => {
     if (page === 1) {
@@ -226,6 +277,66 @@ function App() {
           </div>
         );
       case 4:
+        return (
+          <div className="review-page">
+            <h1 className="review-title">💖 Share Your Thoughts 💖</h1>
+            <p className="review-message">
+              Thank you for reliving our beautiful memories together! Your feedback means the world to me. Please take a moment to share your rating and any thoughts you have.
+            </p>
+            <div className="rating-section">
+              <h3>How would you rate our memories?</h3>
+              <div className="stars">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <label key={star} className="star-label">
+                    <input
+                      type="radio"
+                      name="rating"
+                      value={star}
+                      onChange={() => handleRatingChange(star)}
+                      checked={rating === star}
+                    />
+                    <span className={`star ${rating > star ? 'filled' : ''} ${(rating === star || (tempEmoji && currentStar === star)) ? 'emoji' : ''}`}>
+                      {tempEmoji && currentStar === star ? tempEmoji : rating === star ? emojis[star] : '⭐'}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div className="review-text-section">
+              <h3>Any message for me?</h3>
+              <textarea
+                className="review-textarea"
+                placeholder="Write your thoughts here..."
+                value={reviewText}
+                onChange={(e) => setReviewText(e.target.value)}
+                rows="4"
+              />
+            </div>
+            <button onClick={sendEmail} className="submit-btn">
+              Submit & Continue
+            </button>
+            <div className="review-hearts">
+              <span>💕</span>
+              <span>💖</span>
+              <span>💗</span>
+            </div>
+            {showSuccess && (
+              <div className="success-overlay">
+                <div className="success-box">
+                  <div className="success-icon">✅</div>
+                  <h2>Review Sent Successfully!</h2>
+                  <p>Your feedback means the world to me. Thank you! 💖</p>
+                  <div className="success-hearts">
+                    <span>🎉</span>
+                    <span>✨</span>
+                    <span>💫</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      case 5:
         return (
           <div className="final-page">
             <h1 className="final-title">🎊 Happy Birthday Disha! 🎊</h1>

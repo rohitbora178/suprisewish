@@ -560,6 +560,460 @@ body {
   box-shadow: 0 15px 25px rgba(255, 105, 203, 0.4);
 }
 
+.review-page {
+  width: 550px;
+  max-width: 90%;
+  padding: 50px 40px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 240, 245, 0.98));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 105, 203, 0.4);
+  animation: modalSlideIn 0.2s ease-out, bounceIn 0.1s ease 0.2s both;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 105, 203, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.review-page::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: radial-gradient(circle, rgba(255, 105, 203, 0.15) 0%, rgba(255, 182, 193, 0.1) 40%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+.review-page::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff6aab, transparent);
+  border-radius: 2px;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.review-title {
+  color: #c81679;
+  margin-bottom: 25px;
+  font-size: 2.2em;
+  text-shadow: 0 3px 10px rgba(200, 22, 121, 0.4), 0 1px 3px rgba(255, 255, 255, 0.5);
+  font-weight: 800;
+  animation: titleBounce 1s ease, glowPulse 2s ease-in-out infinite 1s;
+  letter-spacing: 0.05em;
+}
+
+.review-message {
+  font-size: 1.15em;
+  color: #2f2f2f;
+  margin-bottom: 35px;
+  line-height: 1.7;
+  animation: fadeInUp 1s ease 0.3s both, textGlow 3s ease-in-out infinite 1.3s;
+  font-weight: 500;
+}
+
+.rating-section {
+  margin-bottom: 35px;
+  animation: fadeInUp 1s ease 0.5s both, sectionFloat 4s ease-in-out infinite 1.5s;
+}
+
+.rating-section h3 {
+  color: #c81679;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  font-weight: 600;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.star-label {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  position: relative;
+}
+
+.star-label:hover {
+  transform: scale(1.3) rotate(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+.star {
+  font-size: 50px;
+  color: #e0e0e0;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.star.filled {
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+  animation: starGlow 0.6s ease, starTwinkle 2s ease-in-out infinite 0.6s;
+  transform: scale(1.1);
+}
+
+.star-label input {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.review-text-section {
+  margin-bottom: 35px;
+  animation: fadeInUp 1s ease 0.7s both, sectionFloat 4s ease-in-out infinite 1.7s;
+}
+
+.review-text-section h3 {
+  color: #c81679;
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  font-weight: 600;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.review-textarea {
+  width: 90%;
+  padding: 18px;
+  border: 3px solid rgba(255, 105, 203, 0.4);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+  font-size: 1.05em;
+  color: #2f2f2f;
+  resize: vertical;
+  transition: all 0.4s ease;
+  outline: none;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.1), 0 0 0 2px transparent;
+  animation: fadeInUp 1s ease 0.9s both;
+}
+
+.review-textarea:focus {
+  border-color: #ff6aab;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.1), 0 0 0 3px rgba(255, 106, 171, 0.3), 0 0 20px rgba(255, 106, 171, 0.2);
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 1);
+}
+
+.submit-btn {
+  padding: 16px 32px;
+  font-size: 19px;
+  border: none;
+  border-radius: 35px;
+  background: linear-gradient(130deg, #ffd7f2, #ff6aab, #ff9a9e);
+  color: #3a002d;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(255, 105, 203, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  animation: fadeInUp 1s ease 1s both, btnPulse 2s ease-in-out infinite 2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 35px rgba(255, 105, 203, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(130deg, #ff6aab, #ffd7f2, #ff9a9e);
+}
+
+.submit-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.review-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+  animation: fadeInUp 1s ease 1.2s both;
+}
+
+.review-hearts span {
+  font-size: 36px;
+  animation: float 3s infinite ease-in-out, heartGlow 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.review-hearts span:hover {
+  transform: scale(1.3) rotate(10deg);
+  animation: bounce 0.6s ease;
+}
+
+.review-hearts span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.review-hearts span:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.review-hearts span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+.success-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 240, 245, 0.98));
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  border: 3px solid rgba(255, 105, 203, 0.5);
+  animation: successBounce 0.8s ease;
+}
+
+.success-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: checkmark 1s ease;
+}
+
+.success-box h2 {
+  color: #c81679;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.success-box p {
+  color: #2f2f2f;
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.success-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.success-hearts span {
+  font-size: 40px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.success-hearts span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.success-hearts span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes successBounce {
+  0% {
+    transform: scale(0.5) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(90deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes starGlow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes modalSlideIn {
+  0% {
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0);
+  }
+}
+
+@keyframes titleBounce {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 3px 10px rgba(200, 22, 121, 0.4), 0 1px 3px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 3px 15px rgba(200, 22, 121, 0.6), 0 1px 5px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 105, 203, 0.3);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(200, 22, 121, 0.2);
+  }
+}
+
+@keyframes sectionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes btnPulse {
+  0%, 100% {
+    box-shadow: 0 12px 25px rgba(255, 105, 203, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 15px 30px rgba(255, 105, 203, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes heartGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 105, 203, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 105, 203, 0.6));
+  }
+}
+
+@keyframes emojiPop {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
 .hearts span:nth-child(2) {
   animation-delay: 0.5s;
 }
@@ -847,6 +1301,36 @@ body {
     padding: 12px 24px;
     font-size: 16px;
   }
+
+  .review-page {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .review-title {
+    font-size: 1.7em;
+  }
+
+  .review-message {
+    font-size: 1em;
+  }
+
+  .star {
+    font-size: 35px;
+  }
+
+  .review-textarea {
+    font-size: 0.95em;
+  }
+
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .review-hearts span {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -903,5 +1387,55 @@ body {
   .restart-btn {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .review-page {
+    padding: 25px 15px;
+  }
+
+  .review-title {
+    font-size: 1.5em;
+  }
+
+  .review-message {
+    font-size: 0.95em;
+  }
+
+  .star {
+    font-size: 30px;
+  }
+
+  .review-textarea {
+    font-size: 0.9em;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .review-hearts span {
+    font-size: 24px;
+  }
+
+  .success-box {
+    padding: 30px 20px;
+    max-width: 350px;
+  }
+
+  .success-icon {
+    font-size: 50px;
+  }
+
+  .success-box h2 {
+    font-size: 1.5em;
+  }
+
+  .success-box p {
+    font-size: 1em;
+  }
+
+  .success-hearts span {
+    font-size: 30px;
   }
 }
