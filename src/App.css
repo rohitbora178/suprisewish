@@ -258,7 +258,7 @@ body::before {
 
 .loading-spinner .heart {
   font-size: 45px;
-  animation: bounceIn 1.5s ease-in-out infinite, heartPulse 2s ease-in-out infinite;
+  animation: rotate 3s linear infinite;
   filter: drop-shadow(0 4px 8px rgba(245, 87, 108, 0.3));
 }
 
@@ -1073,9 +1073,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(102, 126, 234, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;

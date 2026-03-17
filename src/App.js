@@ -275,25 +275,25 @@ function App() {
               <div className="memory-gallery">
                 <h2>📸 More Memories</h2>
                 <div className="gallery-grid">
-                  <img src="/collage.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="/bhel.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="/kalyan.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="/math.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" />
-                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" />
-                  <img src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" />
-                  <img src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" />
-                  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" />
-                  <img src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" />
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" />
-                  <img src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" />
-                  <img src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" />
-                  <img src="https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19" alt="Memory 5" className="gallery-img" />
-                  <img src="/milk.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="/coffe.jpg" alt="Memory 10" className="gallery-img" />
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s" alt="Memory 8" className="gallery-img" />
-                  <img src="/juice.jpg" alt="Memory 10" className="gallery-img" />
+                  <img src="/collage.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="/bhel.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="/kalyan.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="/math.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" loading="lazy" />
+                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" loading="lazy" />
+                  <img src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" loading="lazy" />
+                  <img src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" loading="lazy" />
+                  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" loading="lazy" />
+                  <img src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" loading="lazy" />
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" loading="lazy" />
+                  <img src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19" alt="Memory 5" className="gallery-img" loading="lazy" />
+                  <img src="/milk.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="/coffe.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s" alt="Memory 8" className="gallery-img" loading="lazy" />
+                  <img src="/juice.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -372,8 +372,8 @@ function App() {
       case 5:
         return (
           <div className="final-page">
-            <h1 className="final-title">🎊 Happy Birthday Disha! 🎊</h1>
-            <p className="final-message">May your year be filled with joy, love, and endless adventures! 🎂✨</p>
+            <h1 className="final-title">Happy Happy Birthday Disha! 🎂🎉</h1>
+            <p className="final-message">Wishing you a year filled with endless joy, love, and beautiful adventures! 💖✨</p>
             <div className="final-hearts">
               <span>🎈</span>
               <span>🎉</span>
