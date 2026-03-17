@@ -87,9 +87,9 @@ function App() {
       case 0:
         return (
           <div className="surprise-box">
-            <h1>🎁 A Surprise For You</h1>
+            <h1 className="subTitle-con">🎁 A Surprise For You</h1>
             <p className="subtitle">Tap the gift to open your message</p>
-           
+
             <button className="button" onClick={() => setPage(1)}>
               <svg
                 className="button-cosm"
@@ -123,7 +123,7 @@ function App() {
                   </g>
                 </g>
               </svg>
-             Click here to Open 
+              Click here to Open
             </button>
 
             <svg height="0" width="0">
@@ -277,13 +277,15 @@ function App() {
 
               Keep smiling always. 😊
             </p>
+            <div className="button-container">
+              <button onClick={() => setPage(3)} className="next-btn">
+                Click here to See Memories
+              </button><br />
+              <button onClick={() => setPage(6)} className="about-btn">
+                Click here to know more about Disha
+              </button>
+            </div>
 
-            <button onClick={() => setPage(3)} className="next-btn">
-              Click here to See Memories
-            </button><br />
-            <button onClick={() => setPage(6)} className="about-btn">
-              Click here to know more about Disha
-            </button>
 
             <div className="hearts">
               <span>❤️</span>
@@ -400,10 +402,15 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="button-container">
+              <button onClick={() => setPage(2)} className="back-btn">
+                Back to Message
+              </button>
 
-            <button onClick={() => setPage(4)} className="next-btn">
-              Continue
-            </button>
+              <button onClick={() => setPage(4)} className="next-btn">
+                Continue
+              </button>
+            </div>
           </div>
         );
       case 4:
@@ -498,7 +505,7 @@ function App() {
                 alt="Disha"
               />
             </div>
-            <h1>More About Disha</h1>
+            <h1 className="subTitle-con">More About Disha</h1>
             <p>Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.</p>
 
             <p>Disha is not just a name, it is a story of strength, determination, and quiet resilience. At just 24 years of age, she is already walking a path that many only dream of. Currently, she is pursuing LLB along with Company Secretary studies — a combination that itself reflects her dedication, discipline, and ambition.</p>
