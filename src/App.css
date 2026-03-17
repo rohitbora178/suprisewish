@@ -528,6 +528,18 @@ body::before {
   box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
 }
 
+.disha-child-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  animation: slideInDown 0.8s var(--animation-timing);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
 .memories-page {
   width: 550px;
   max-width: 95%;

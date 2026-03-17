@@ -391,6 +391,13 @@ function App() {
       case 6:
         return (
           <div className="about-page">
+            <div>
+              <img
+                className="disha-child-image"
+                src="/child.jpg"
+                alt="Disha"
+              />
+            </div>
             <h1>More About Disha</h1>
             <p>Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.</p>
 
