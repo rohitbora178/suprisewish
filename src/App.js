@@ -179,7 +179,7 @@ function App() {
             </p>
 
             <button onClick={() => setPage(3)} className="next-btn">
-              See Memories
+              Click here to See Memories
             </button><br/>
             <button onClick={() => setPage(6)} className="about-btn">
               Click here to know more about Disha
