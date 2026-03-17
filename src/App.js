@@ -298,6 +298,25 @@ function App() {
       case 3:
         return (
           <div className="memories-page">
+              <div className="balloons-container">
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+            </div>
+            <div className="confetti-container">
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+            </div>
             <h1 className="memories-title">🌳 Our Memories Tree</h1>
             <div className="memories-content">
               <p>
@@ -526,6 +545,7 @@ function App() {
                 alt="Disha"
               />
             </div>
+            
             <h1 className="subTitle-con">More About Disha</h1>
             <p>Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.</p>
 
