@@ -490,6 +490,27 @@ function App() {
               <span>🎊</span>
               <span>🎁</span>
             </div>
+
+            <div className="balloons-container">
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+              <div className="balloon">🎈</div>
+            </div>
+            <div className="confetti-container">
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+              <div className="confetti-piece"></div>
+            </div>
+
             <button onClick={() => setPage(0)} className="restart-btn">
               Start Over
             </button>
