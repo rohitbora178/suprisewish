@@ -1615,15 +1615,20 @@ body::before {
   border-radius: 2rem;
 }
 
-.button:hover {
+.button:hover,
+.button:focus,
+.button:focus-visible {
   font-weight: bold;
   border-width: 0px;
   border-radius: 2rem;
   rotate: -2.5deg;
   animation: hover 2.5s infinite ease-in-out;
+  outline: none;
 }
 
-.button:hover .highlight {
+.button:hover .highlight,
+.button:focus .highlight,
+.button:focus-visible .highlight {
   stroke-dashoffset: 0;
 }
 
