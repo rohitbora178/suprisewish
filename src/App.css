@@ -2248,6 +2248,10 @@ body::before {
     font-size: 24px;
     margin: 8px;
   }
+
+  .subTitle-con {
+    font-family: Copperplate, Papyrus, fantasy;
+  }
 }
 
 
@@ -2317,6 +2321,10 @@ body::before {
 
   .loading-text {
     font-size: 14px;
+  }
+
+  .subTitle-con {
+    font-family: Copperplate, Papyrus, fantasy;
   }
 }
 
