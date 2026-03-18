@@ -161,6 +161,14 @@ Thank you.`;
     }
   }, [page, countdown]);
 
+  // Stop text-to-speech when navigating away from about page
+  useEffect(() => {
+    if (isReading && page !== 6) {
+      window.speechSynthesis.cancel();
+      setIsReading(false);
+    }
+  }, [page, isReading]);
+
   const renderPage = () => {
     switch (page) {
       case 0:
