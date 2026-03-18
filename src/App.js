@@ -12,6 +12,7 @@ function App() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isReading, setIsReading] = useState(false);
 
   const emojis = {
     1: '😢',
@@ -19,6 +20,70 @@ function App() {
     3: '😊',
     4: '😄',
     5: '😍'
+  };
+
+  const handleTextToSpeech = () => {
+    if (isReading) {
+      window.speechSynthesis.cancel();
+      setIsReading(false);
+      return;
+    }
+
+    const aboutPageText = `More About Disha. Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.
+
+Disha is not just a name, it is a story of strength, determination, and quiet resilience. At just 24 years of age, she is already walking a path that many only dream of. Currently, she is pursuing LLB along with Company Secretary studies — a combination that itself reflects her dedication, discipline, and ambition.
+
+Disha now lives in Shirur, but her roots are deeply connected to a small town called Khadus, where she spent her childhood at her dada-dadi's home. Those early years shaped her into the person she is today — grounded, respectful, and full of warmth.
+
+From a young age, Disha has always been focused and intelligent. Coming from a Marathi medium background, she proved that language is never a barrier when determination speaks louder. Her helpful nature and kind-hearted personality naturally attract people — she is someone everyone feels comfortable with.
+
+She is a perfect example of balance. At home, she is a loving daughter — her mother is a homemaker, and her father is a businessman. Disha stands as a strong support system for both. Whether it's helping her mother in daily work, taking care of her grandparents, or even managing her father's shop when he is not around — she handles everything with maturity beyond her age.
+
+And she's not just responsible — she's also independent. She drives a car confidently, cooks delicious meals, and manages responsibilities like a pro. In short, she is someone who can take care of everything and everyone.
+
+Disha is also deeply spiritual. Every Monday, she visits the Shiva temple at Ramling Shirur, finding peace and strength in her faith. She also loves visiting Jain tirths, showing her connection with values and traditions.
+
+But beyond all this strength and positivity, there is a side of her story that many may not see.
+
+Life hasn't always been easy for Disha.
+
+At a very young age, she faced a heartbreaking loss — she lost her brother. He was a civil engineer, someone she admired deeply. She often says how proud she is of him and the struggles he went through. Losing him was not just losing a family member — it was losing a part of herself. It shook her completely.
+
+For a moment, life scattered her.
+
+But what makes Disha truly special is what she did after that.
+
+She stood up again.
+
+With courage in her heart and tears hidden behind her smile, she chose to move forward. And as if that wasn't enough, life tested her again with another major loss. Yet again, she didn't give up. She gathered herself, stood strong, and continued to spread happiness around her.
+
+That is Disha — even when she is hurting, she makes sure others are smiling.
+
+She dreams big — to become a successful Company Secretary and a lawyer, and most importantly, to make her parents proud. And knowing her, this is not just a dream — it's a promise she will fulfill.
+
+She also has a fun and lively side. She loves traveling, exploring new places, and trying new food. Especially cheesecake — if there's cheesecake around, you'll definitely find Disha smiling! And yes, she has a special love for Oreo chocolate too — those little moments of joy that make her even more relatable and real.
+
+When you look at her, you see happiness, confidence, and strength. But when you truly know her, you realize — she is a warrior. A girl who turned pain into power, loss into motivation, and challenges into stepping stones.
+
+Disha teaches us that life is not about how easy your journey is, but about how strong you become through your struggles.
+
+In the end, I just want to say — Disha, you are an inspiration. Your story reminds us to never give up, to stay grounded, and to always keep moving forward no matter what life throws at us.
+
+We are truly lucky to have you in our lives.
+
+Thank you.`;
+
+    const utterance = new SpeechSynthesisUtterance(aboutPageText);
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    utterance.onend = () => {
+      setIsReading(false);
+    };
+
+    setIsReading(true);
+    window.speechSynthesis.speak(utterance);
   };
 
   const handleSubmit = () => {
@@ -574,6 +639,13 @@ function App() {
             </div>
             
             <h1 className="subTitle-con">More About Disha</h1>
+            <button 
+              onClick={handleTextToSpeech}
+              className="read-aloud-btn"
+              title="Click to read the story aloud"
+            >
+              {isReading ? '🔊 Stop Reading' : '🔊 Read Aloud'}
+            </button>
             <p>Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.</p>
 
             <p>Disha is not just a name, it is a story of strength, determination, and quiet resilience. At just 24 years of age, she is already walking a path that many only dream of. Currently, she is pursuing LLB along with Company Secretary studies — a combination that itself reflects her dedication, discipline, and ambition.</p>
