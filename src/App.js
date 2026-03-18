@@ -343,25 +343,7 @@ function App() {
       case 3:
         return (
           <div className="memories-page">
-              <div className="balloons-container">
-              <div className="balloon">🎈</div>
-              <div className="balloon">🎈</div>
-              <div className="balloon">🎈</div>
-              <div className="balloon">🎈</div>
-              <div className="balloon">🎈</div>
-            </div>
-            <div className="confetti-container">
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-              <div className="confetti-piece"></div>
-            </div>
+           
             <h1 className="memories-title">🌳 Our Memories Tree</h1>
             <div className="memories-content">
               <p>
