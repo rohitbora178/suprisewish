@@ -454,7 +454,7 @@ function App() {
                 See Memories
               </button><br />
               <button onClick={() => setPage(6)} className="about-btn">
-                About Disha
+                More About Disha 💖
               </button>
             </div>
 
@@ -610,7 +610,7 @@ function App() {
             </div>
             <div className="button-container">
               <button onClick={() => setPage(6)} className="about-btn">
-                About Disha
+                More About Disha 💖
               </button>
               <button onClick={() => setPage(4)} className="next-btn">
                 Share Thoughts
