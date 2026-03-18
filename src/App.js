@@ -2,6 +2,29 @@ import React, { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 import "./App.css";
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong. Please refresh the page.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+
 function App() {
   const [page, setPage] = useState(0);
   const [countdown, setCountdown] = useState(3);
@@ -19,6 +42,13 @@ function App() {
     3: '😊',
     4: '😄',
     5: '😍'
+  };
+
+  // Image component with fallback
+  const ImageWithFallback = ({ src, alt, fallbackSrc = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2NjYyIvPjwvc3ZnPg==', ...props }) => {
+    const [imgSrc, setImgSrc] = useState(src);
+    const onError = () => setImgSrc(fallbackSrc);
+    return <img src={imgSrc} alt={alt} onError={onError} {...props} />;
   };
 
   const handleSubmit = () => {
@@ -70,8 +100,7 @@ function App() {
       }, 3000);
     } catch (error) {
       setIsSubmitting(false);
-      setErrorMessage('Failed to send review. Please try again.');
-      alert('Failed to send review. Please try again.');
+      setErrorMessage('Failed to send message. Please check your connection and try again.');
       console.error('Email send error:', error);
     }
   };
@@ -308,7 +337,7 @@ function App() {
               <div className="confetti-piece"></div>
             </div>
             <div className="cardHeader">
-              <img
+              <ImageWithFallback
                 className="cardImage"
                 src="/llb.jpg"
                 alt="Disha"
@@ -372,10 +401,10 @@ function App() {
             </p>
             <div className="button-container">
               <button onClick={() => setPage(3)} className="next-btn">
-                Click here to See Memories
+                See Memories
               </button><br />
               <button onClick={() => setPage(6)} className="about-btn">
-                Click here to know more about Disha
+                About Disha
               </button>
             </div>
 
@@ -440,7 +469,7 @@ function App() {
 
               <div className="branch">
                 <h2>🌱 Our First Meeting — 18 January 2025</h2>
-                <img src="https://b.zmtcdn.com/data/pictures/7/6507967/2529c13e9a33a2a9ffd531f1a79cbe99.jpg?fit=around|960:500&crop=960:500;*,*" alt="First Meeting" className="branch-img" />
+                <ImageWithFallback src="https://b.zmtcdn.com/data/pictures/7/6507967/2529c13e9a33a2a9ffd531f1a79cbe99.jpg?fit=around|960:500&crop=960:500;*,*" alt="First Meeting" className="branch-img" />
                 <p>
                   I still remember waiting outside Wadeshwar on FC Road. You
                   walked toward me in a light pink top, blue jeans, and white
@@ -455,7 +484,7 @@ function App() {
 
               <div className="branch">
                 <h2>🎬 Movie Time</h2>
-                <img src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_500x286/public/2025/03/19/1703292-jh234-2025-03-19t202030.184.png" alt="Movie Time" className="branch-img" />
+                <ImageWithFallback src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_500x286/public/2025/03/19/1703292-jh234-2025-03-19t202030.184.png" alt="Movie Time" className="branch-img" />
                 <p>
                   We watched “Azaad” together. We laughed, whispered, and just
                   enjoyed being together. That simple movie night became one of
@@ -465,7 +494,7 @@ function App() {
 
               <div className="branch">
                 <h2>☕ Coffee & Sarasbaug</h2>
-                <img src="https://images.trvl-media.com/place/6170139/c08972a7-a194-4133-9dd6-139fac768c8a.jpg" alt="Coffee & Sarasbaug" className="branch-img" />
+                <ImageWithFallback src="https://images.trvl-media.com/place/6170139/c08972a7-a194-4133-9dd6-139fac768c8a.jpg" alt="Coffee & Sarasbaug" className="branch-img" />
                 <p>
                   After the movie, we went to Pavilion Mall for coffee, then
                   walked to Sarasbaug. You shared your thoughts and I listened
@@ -480,7 +509,7 @@ function App() {
 
               <div className="branch">
                 <h2>🧡 Second Meeting</h2>
-                <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/05/07175849/08052018_kingofgame_bowling_01.jpg" alt="Second Meeting" className="branch-img" />
+                <ImageWithFallback src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/05/07175849/08052018_kingofgame_bowling_01.jpg" alt="Second Meeting" className="branch-img" />
                 <p>
                   You called and said, “I’m coming to Pune today.” We met at Kumar
                   Pacific Mall, played games, visited Shankar Maharaj Math, ate
@@ -491,7 +520,7 @@ function App() {
 
               <div className="branch">
                 <h2>🎂 Third Meeting — Your Birthday</h2>
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/09/1f/b3/97/wadeshwar.jpg" alt="Third Meeting" className="branch-img" />
+                <ImageWithFallback src="https://media-cdn.tripadvisor.com/media/photo-s/09/1f/b3/97/wadeshwar.jpg" alt="Third Meeting" className="branch-img" />
                 <p>
                   You looked so beautiful in a white top. I brought your favorite
                   cheesecake, and we celebrated quietly. We even took a photo
@@ -507,25 +536,25 @@ function App() {
               <div className="memory-gallery">
                 <h2>📸 More Memories</h2>
                 <div className="gallery-grid">
-                  <img src="/collage.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="/bhel.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="/kalyan.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="/math.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" loading="lazy" />
-                  <img src="/shri.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" loading="lazy" />
-                  <img src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" loading="lazy" />
-                  <img src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" loading="lazy" />
-                  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" loading="lazy" />
-                  <img src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" loading="lazy" />
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" loading="lazy" />
-                  <img src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19" alt="Memory 5" className="gallery-img" loading="lazy" />
-                  <img src="/milk.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="/coffe.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s" alt="Memory 8" className="gallery-img" loading="lazy" />
-                  <img src="/juice.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/collage.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/bhel.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/kalyan.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/math.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://content.jdmagicbox.com/comp/pune/z4/020pxx20.xx20.180921192240.c1z4/catalogue/cream-craver-pune-restaurants-rlva2djfuc.jpg" alt="Memory 1" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/shri.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/03/12230236/11032018_JWmarriott_06.jpg" alt="Memory 6" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://www.crazycheesy.com/wp-content/uploads/2023/01/c1.jpg" alt="Memory 7" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://images.moneycontrol.com/static-mcnews/2018/10/DMart-e1539415670772-770x433.jpg?impolicy=website&width=770&height=431" alt="Memory 2" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/e8/5f/29/excellent-food-and-service.jpg?w=900&h=500&s=1" alt="Memory 4" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://images.jdmagicbox.com/comp/pune/h7/020pxx20.xx20.191017072226.a4h7/catalogue/theobroma-kothrud-pune-cake-shops-bxbjauajlk.jpg" alt="Memory 3" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvD37MHjmcVGCSEFs_O7D1jy7uL4BZWSKYw&s" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://im.whatshot.in/img/2018/Nov/jm-1-cropped-1541744951.jpg" alt="Memory 9" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://i.ytimg.com/vi/7vhwmRxD2v8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC1Te6vSGttcdqTyFpiKEHXVrEWcg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://d2kihw5e8drjh5.cloudfront.net/eyJidWNrZXQiOiJ1dGEtaW1hZ2VzIiwia2V5IjoicGxhY2VfaW1nLzFiNTc1M2I0NDBkOTRkMTBhN2IxYjE1YWE2OTBiYTFkIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo2NDAsImhlaWdodCI6NjQwLCJmaXQiOiJpbnNpZGUifSwicm90YXRlIjpudWxsLCJ0b0Zvcm1hdCI6ICJ3ZWJwIn19" alt="Memory 5" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/milk.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/coffe.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwaqPpFbSQc68w2As8EtjPWTpz7rEN6Cl4w&s" alt="Memory 8" className="gallery-img" loading="lazy" />
+                  <ImageWithFallback src="/juice.jpg" alt="Memory 10" className="gallery-img" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -713,7 +742,7 @@ function App() {
             )}
             
             <div>
-              <img
+              <ImageWithFallback
                 className="disha-child-image"
                 src="/child.jpg"
                 alt="Disha"
@@ -764,7 +793,7 @@ function App() {
             <p>We are truly lucky to have you in our lives.</p>
 
             <p>Thank you.</p>
-            <button onClick={() => setPage(2)} className="back-btn">Back to Message</button>
+            <button onClick={() => setPage(2)} className="back-btn">Back to Birthday Message</button>
           </div>
         );
       default:
@@ -773,9 +802,11 @@ function App() {
   };
 
   return (
-    <div className="container">
-      {renderPage()}
-    </div>
+    <ErrorBoundary>
+      <div className="container">
+        {renderPage()}
+      </div>
+    </ErrorBoundary>
   );
 }
 
