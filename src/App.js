@@ -365,9 +365,9 @@ function App() {
                 </div>
               </div>
             )}
-            
+
             <audio src="/song.mp3" autoPlay loop />
-               <div className="balloons-container">
+            <div className="balloons-container">
               <div className="balloon">🎈</div>
               <div className="balloon">🎈</div>
               <div className="balloon">🎈</div>
@@ -393,7 +393,7 @@ function App() {
                 alt="Disha"
               />
             </div>
-            
+
 
             <h1 className="title">🎂 Happy Birthday Disha 🎂</h1>
             <h3 className="date">03 / 04 / 2026</h3>
@@ -449,16 +449,9 @@ function App() {
 
               Keep smiling always. 😊
             </p>
-            <div className="button-container">
-              <button onClick={() => setPage(3)} className="next-btn">
-                See Memories
-              </button><br />
-              <button onClick={() => setPage(6)} className="about-btn">
-                More About Disha 💖
-              </button>
-            </div>
-
-
+            <button onClick={() => setPage(3)} className="next-btn">
+              See Memories
+            </button>
             <div className="hearts">
               <span>❤️</span>
               <span>💖</span>
@@ -503,7 +496,7 @@ function App() {
                 </div>
               </div>
             )}
-           
+
             <h1 className="memories-title">🌳 Our Memories Tree</h1>
             <div className="memories-content">
               <p>
@@ -608,13 +601,11 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="button-container">
+            <div>
               <button onClick={() => setPage(6)} className="about-btn">
                 More About Disha 💖
               </button>
-              <button onClick={() => setPage(4)} className="next-btn">
-                Share Thoughts
-              </button>
+
             </div>
           </div>
         );
@@ -790,7 +781,7 @@ function App() {
                 </div>
               </div>
             )}
-            
+
             <div>
               <ImageWithFallback
                 className="disha-child-image"
@@ -798,7 +789,7 @@ function App() {
                 alt="Disha"
               />
             </div>
-            
+
             <h1 className="subTitle-con">More About Disha</h1>
             <p>Today, I feel truly honored to speak about someone very special — my dear friend, Disha Sandeep Chopda.</p>
 
@@ -843,7 +834,9 @@ function App() {
             <p>We are truly lucky to have you in our lives.</p>
 
             <p>Thank you.</p>
-            <button onClick={() => setPage(2)} className="back-btn">Back to Birthday Message</button>
+            <button onClick={() => setPage(4)} className="next-btn">
+              Share Thoughts
+            </button>
           </div>
         );
       default:
