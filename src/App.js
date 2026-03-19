@@ -851,7 +851,7 @@ function App() {
 
             <p>There’s also a small, funny moment that I’ll always remember about how our friendship began 😊</p>
 
-            <p>When Disha first added me on Instagram, I honestly thought she was a guy! 😄 The reason? Her bio. I completely read it wrong and misunderstood everything — and that confusion was 100% my fault 🤦‍♂️</p>
+            <p>When Disha first added me on Instagram, I honestly thought she was a gay! 😄 The reason? Her bio. I completely read it wrong and misunderstood everything — and that confusion was 100% my fault 🤦‍♂️</p>
 
             <p>Later, when I actually got to know her, I realized how wrong I was… and we both had a good laugh about it 😂 When I told her this story, it turned into one of those light, unforgettable moments that still makes us smile ✨</p>
 
