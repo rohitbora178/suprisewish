@@ -6,10 +6,12 @@ const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage 
   const [reviewText, setReviewText] = useState('');
   const [tempEmoji, setTempEmoji] = useState(null);
   const [currentStar, setCurrentStar] = useState(0);
+  const [localErrorMessage, setLocalErrorMessage] = useState('');
 
   const handleRatingChange = (star) => {
     setCurrentStar(star);
     setTempEmoji(emojis[star]);
+    setLocalErrorMessage(''); // Clear error when rating is selected
     setTimeout(() => {
       setTempEmoji(null);
       setRating(star);
@@ -18,13 +20,14 @@ const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage 
 
   const handleSubmit = () => {
     if (rating === 0) {
-      alert('Please click on Stars to Rate');
+      setLocalErrorMessage('Please click on Stars to Rate');
       return;
     }
     if (reviewText.trim() === '') {
-      alert('Please write a message before submitting');
+      setLocalErrorMessage('Please write a message before submitting');
       return;
     }
+    setLocalErrorMessage(''); // Clear any existing error
     onSubmit({ rating, reviewText });
   };
 
@@ -60,11 +63,17 @@ const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage 
           className="review-textarea"
           placeholder="Write your thoughts here..."
           value={reviewText}
-          onChange={(e) => setReviewText(e.target.value)}
+          onChange={(e) => {
+            setReviewText(e.target.value);
+            if (localErrorMessage === 'Please write a message before submitting') {
+              setLocalErrorMessage(''); // Clear error when user starts typing
+            }
+          }}
           rows="4"
         />
       </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {localErrorMessage && <p className="error-message">{localErrorMessage}</p>}
 
       <button onClick={handleSubmit} className="submit-btn">
         Send My Message →
