@@ -41,9 +41,17 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [page, setPage] = useState(0);
-  const [countdown, setCountdown] = useState(3);
-  const [reactionEmoji, setReactionEmoji] = useState(null);
+  const [page, setPage] = useState(() => {
+    const savedPage = localStorage.getItem('currentPage');
+    return savedPage ? parseFloat(savedPage) : 0;
+  });
+  const [countdown, setCountdown] = useState(() => {
+    const savedCountdown = localStorage.getItem('countdown');
+    return savedCountdown ? parseInt(savedCountdown) : 3;
+  });
+  const [reactionEmoji, setReactionEmoji] = useState(() => {
+    return localStorage.getItem('reactionEmoji') || null;
+  });
 
   const { sendEmail, isSubmitting, showSuccess, setShowSuccess, errorMessage } = useEmail();
 
@@ -84,6 +92,23 @@ function App() {
     }
   }, [page, countdown]);
 
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('currentPage', page.toString());
+  }, [page]);
+
+  useEffect(() => {
+    localStorage.setItem('countdown', countdown.toString());
+  }, [countdown]);
+
+  useEffect(() => {
+    if (reactionEmoji) {
+      localStorage.setItem('reactionEmoji', reactionEmoji);
+    } else {
+      localStorage.removeItem('reactionEmoji');
+    }
+  }, [reactionEmoji]);
+
   const renderPage = () => {
     switch (page) {
       case 0:
@@ -99,7 +124,14 @@ function App() {
       case 4:
         return <ReviewPage onNext={() => setPage(5)} onSubmit={handleSubmitReview} isSubmitting={isSubmitting} showSuccess={showSuccess} errorMessage={errorMessage} onBack={() => setPage(6)} />;
       case 5:
-        return <FinalPage onRestart={() => setPage(0)} />;
+        return <FinalPage onRestart={() => {
+          localStorage.removeItem('currentPage');
+          localStorage.removeItem('countdown');
+          localStorage.removeItem('reactionEmoji');
+          setPage(0);
+          setCountdown(3);
+          setReactionEmoji(null);
+        }} />;
       case 6:
         return <AboutPage onNext={() => setPage(4)} onBack={() => setPage(3)} />;
       default:
