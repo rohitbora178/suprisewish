@@ -95,13 +95,13 @@ function App() {
       case 2:
         return <MessagePage onNext={() => setPage(3)} onReactionChange={handleReactionChange} reactionEmoji={reactionEmoji} reactionMeanings={reactionMeanings} />;
       case 3:
-        return <MemoriesPage onNext={() => setPage(6)} />;
+        return <MemoriesPage onNext={() => setPage(6)} onBack={() => setPage(2)} />;
       case 4:
-        return <ReviewPage onNext={() => setPage(5)} onSubmit={handleSubmitReview} isSubmitting={isSubmitting} showSuccess={showSuccess} errorMessage={errorMessage} />;
+        return <ReviewPage onNext={() => setPage(5)} onSubmit={handleSubmitReview} isSubmitting={isSubmitting} showSuccess={showSuccess} errorMessage={errorMessage} onBack={() => setPage(6)} />;
       case 5:
         return <FinalPage onRestart={() => setPage(0)} />;
       case 6:
-        return <AboutPage onNext={() => setPage(4)} />;
+        return <AboutPage onNext={() => setPage(4)} onBack={() => setPage(3)} />;
       default:
         return null;
     }

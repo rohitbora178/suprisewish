@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { emojis } from '../constants/emojis';
 
-const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage }) => {
+const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage, onBack }) => {
   const [rating, setRating] = useState(0);
   const [reviewText, setReviewText] = useState('');
   const [tempEmoji, setTempEmoji] = useState(null);
@@ -75,9 +75,14 @@ const ReviewPage = ({ onNext, onSubmit, isSubmitting, showSuccess, errorMessage 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {localErrorMessage && <p className="error-message">{localErrorMessage}</p>}
 
-      <button onClick={handleSubmit} className="submit-btn">
-        Send My Message →
-      </button>
+      <div className="button-container">
+        <button onClick={onBack} className="back-arrow-btn">
+          ←
+        </button>
+        <button onClick={handleSubmit} className="submit-btn">
+          Send My Message →
+        </button>
+      </div>
       <div className="review-hearts">
         <span>💕</span>
         <span>💖</span>

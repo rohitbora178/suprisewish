@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ImageWithFallback from './ImageWithFallback';
 import { galleryImages } from '../constants/galleryImages';
 
-const MemoriesPage = ({ onNext }) => {
+const MemoriesPage = ({ onNext, onBack }) => {
   const [galleryExpanded, setGalleryExpanded] = useState(false);
 
   return (
@@ -109,7 +109,10 @@ const MemoriesPage = ({ onNext }) => {
           )}
         </div>
       </div>
-      <div>
+      <div className="button-container">
+        <button onClick={onBack} className="back-arrow-btn">
+          ←
+        </button>
         <button onClick={onNext} className="about-btn">
           More About Disha 💖 →
         </button>

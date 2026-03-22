@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageWithFallback from './ImageWithFallback';
 
-const AboutPage = ({ onNext }) => (
+const AboutPage = ({ onNext, onBack }) => (
   <div className="about-page">
     <div>
       <ImageWithFallback
@@ -70,9 +70,14 @@ const AboutPage = ({ onNext }) => (
     <p>We are truly lucky to have you in our lives 🤍</p>
 
     <p>Thank you 🙏</p>
-    <button onClick={onNext} className="next-btn">
-      Share Your Thoughts →
-    </button>
+    <div className="button-container">
+      <button onClick={onBack} className="back-arrow-btn">
+        ←
+      </button>
+      <button onClick={onNext} className="next-btn">
+        Share Your Thoughts →
+      </button>
+    </div>
   </div>
 );
 
